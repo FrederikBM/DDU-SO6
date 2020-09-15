@@ -1,11 +1,11 @@
 Bane bane;
 Bane bane1 = new bane1();
-Bane bane2 = new bane2();
-Bane baneU = new baneU();
-Bane bane3 = new bane3();
-Bane bane4 = new bane4();
-Bane baneD = new baneD();
-Platform platform;
+//Bane bane2 = new bane2();
+//Bane baneU = new baneU();
+//Bane bane3 = new bane3();
+//Bane bane4 = new bane4();
+//Bane baneD = new baneD();
+//Platform platform;
 
 class Bane {
   int antalPlatforme;
@@ -46,7 +46,7 @@ class Platform {
 void setup() {
   frameRate(30);
   size(1080, 720);
-  bane1 = new Bane(7);
+  bane = new Bane(7);
 }
 void draw() {
   background(135, 206, 235);
