@@ -13,12 +13,30 @@ class Bane {
     antalPlatforme = antal;
   }
 
-  void display() {
+}
+class bane1{
+    void display() {
     rect(0, 670, 1080, 50);
     fill(124, 252, 0);
     noStroke();
   }
 }
+class bane2{
+  
+}
+class baneU{
+  
+}
+class bane3{
+  
+}
+class bane4{
+  
+}
+class baneD{
+  
+}
+
 class Platform {
   int xPos;
   int yPos;
