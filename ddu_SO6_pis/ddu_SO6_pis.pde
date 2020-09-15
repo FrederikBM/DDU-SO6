@@ -1,9 +1,10 @@
-Bane bane1;
-Bane bane2;
-Bane baneU;
-Bane bane3;
-Bane bane4;
-Bane baneD;
+Bane bane;
+Bane bane1 = new bane1();
+Bane bane2 = new bane2();
+Bane baneU = new baneU();
+Bane bane3 = new bane3();
+Bane bane4 = new bane4();
+Bane baneD = new baneD();
 Platform platform;
 
 class Bane {
