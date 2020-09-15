@@ -1,10 +1,10 @@
 Bane bane;
-Bane bane1 = new bane1();
-//Bane bane2 = new bane2();
-//Bane baneU = new baneU();
-//Bane bane3 = new bane3();
-//Bane bane4 = new bane4();
-//Bane baneD = new baneD();
+Bane1 bane1 = new Bane1();
+Bane2 bane2 = new Bane2();
+BaneU baneU = new BaneU();
+Bane3 bane3 = new Bane3();
+Bane4 bane4 = new Bane4();
+BaneD baneD = new BaneD();
 //Platform platform;
 
 class Bane {
@@ -14,26 +14,26 @@ class Bane {
   }
 
 }
-class bane1{
+class Bane1{
     void display() {
     rect(0, 670, 1080, 50);
     fill(124, 252, 0);
     noStroke();
   }
 }
-class bane2{
+class Bane2{
   
 }
-class baneU{
+class BaneU{
   
 }
-class bane3{
+class Bane3{
   
 }
-class bane4{
+class Bane4{
   
 }
-class baneD{
+class BaneD{
   
 }
 
@@ -50,5 +50,7 @@ void setup() {
 }
 void draw() {
   background(135, 206, 235);
+  for(int i = 0; i<100;i++){
   bane1.display();
+  }
 }
