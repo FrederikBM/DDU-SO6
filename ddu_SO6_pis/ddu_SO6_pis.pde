@@ -29,9 +29,10 @@ class Bane {
 }
 class Bane1{
     void display() {
-    rect(0, 670, 1080, 50);
+    rect(-5, 670, 1086, 50);
+    rect(560,560,70,30);
     fill(124, 252, 0);
-    noStroke();
+
   }
 }
 class Bane2{
