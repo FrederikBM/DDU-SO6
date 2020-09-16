@@ -16,7 +16,7 @@ void setup() {
 void draw() {
   background(135, 206, 235);
   for (int i = 0; i<100; i++) {
-    bane1.display();
+    bane2.display();
   }
 }
 
