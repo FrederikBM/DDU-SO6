@@ -4,6 +4,7 @@ class Bane {
     antalPlatforme = antal;
   }
 }
+
 class Bane1 {
   void display() {
     rect(-5, 670, 1086, 50); //jorden
