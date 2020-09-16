@@ -42,7 +42,7 @@ class BaneU {
     rect(-5, 670, 1086, 50); //jorden
     rect(90, 400, 70, 30); //første blok fra venstre
     rect(190, 570, 70, 30); //anden blok fra venstre
-    rect(240, 440, 70, 30); //tredje blok fra venstre
+    rect(240, 470, 70, 30); //tredje blok fra venstre
     rect(600, 560, 70, 30); //fjerde blok fra venstre
     rect(800, 530, 70, 30); //femte blok fra venstre
     rect(1000, 540, 70, 30); //sjette blok fra venstre
@@ -88,4 +88,18 @@ class Bane4 {
 }
 }
 class BaneD {
+  void display(){
+    rect(-5, 670, 1086, 50); //jorden
+    rect(68, 270, 50, 400); //forhindring
+    rect(962, 270, 50, 400); //forhindring
+    rect(118, 560, 50, 30); //blok side fast på forhindring
+    rect(190, 475, 70, 30); //først blok fra venstre
+    rect(310, 400, 150, 30); //anden blok fra venstre
+    rect(610, 400, 150, 30); //tredje blok fra venstre
+    rect(830, 350, 70, 30);
+    fill(95, 2, 31); // hul farve
+    rect(-2, 670, 70, 50); //hul i jorden
+    rect(1012, 670, 70, 50); //hul i jorden
+    fill(124, 252, 0); //gras grøn farve
+  }
 }
