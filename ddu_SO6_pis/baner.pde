@@ -40,16 +40,12 @@ class Bane2 {
 class BaneU {
   void display(){
     rect(-5, 670, 1086, 50); //jorden
-    rect(40, 200, 70, 30); //første blok fra venstre
-    rect(90, 400, 70, 30); //anden blok fra venstre
-    rect(150, 500, 70, 30); //trejde blok fra venstre
-    rect(160, 100, 70, 30); //fjerde blok fra venstre
-    rect(190, 570, 70, 30); //femte blok fra venstre
-    rect(240, 440, 70, 30); //sjette blok fra venstre
-    rect(600, 560, 70, 30); //syvende blok fra venstre
-    rect(670, 500, 70, 30); //ottende blok fra venstre
-    rect(800, 530, 70, 30); //niende blok fra venstre
-    rect(1000, 540, 70, 30); //tiende blok fra venstre
+    rect(90, 400, 70, 30); //første blok fra venstre
+    rect(190, 570, 70, 30); //anden blok fra venstre
+    rect(240, 440, 70, 30); //tredje blok fra venstre
+    rect(600, 560, 70, 30); //fjerde blok fra venstre
+    rect(800, 530, 70, 30); //femte blok fra venstre
+    rect(1000, 540, 70, 30); //sjette blok fra venstre
     fill(124, 252, 0); //gras grøn farve
   }
 }
