@@ -1,11 +1,13 @@
 class Bane {
-  int antalPlatforme;
-  Bane(int antal) {
-    antalPlatforme = antal;
+  void display() {
+  }
+  Bane nextBane() {
+    return null;
   }
 }
 
-class Bane1 {
+class Bane1 extends Bane {
+  
   void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(280, 610, 70, 30); //nederste blok
@@ -19,9 +21,20 @@ class Bane1 {
     rect(1000, 600, 30, 70); //"dør"
     fill(124, 252, 0); //gras grøn farve
   }
+
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return bane2;
+    } else { 
+      return this;
+    }
+  }
 }
-class Bane2 {
-  void display(){
+
+
+class Bane2 extends Bane {
+  void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(570, 540, 60, 130); //bund af forhindring
     rect(600, 440, 30, 100); //midt af forhindring
@@ -37,9 +50,18 @@ class Bane2 {
     rect(630, 670, 170, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
   }
+  
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return baneU;
+    } else { 
+      return this;
+    }
+  }
 }
-class BaneU {
-  void display(){
+class BaneU extends Bane {
+  void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(90, 400, 70, 30); //første blok fra venstre
     rect(190, 570, 70, 30); //anden blok fra venstre
@@ -49,9 +71,18 @@ class BaneU {
     rect(1000, 540, 70, 30); //sjette blok fra venstre
     fill(124, 252, 0); //gras grøn farve
   }
+  
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return bane3;
+    } else { 
+      return this;
+    }
+  }
 }
-class Bane3 {
-  void display(){
+class Bane3 extends Bane {
+  void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(570, 540, 60, 130); //bund af forhindring
     rect(570, 340, 60, 100); //top af forhindring
@@ -67,10 +98,19 @@ class Bane3 {
     rect(630, 670, 170, 50); //hul i jorden
     rect(300, 670, 100, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
+  }
+  
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return bane4;
+    } else { 
+      return this;
+    }
+  }
 }
-}
-class Bane4 {
-  void display(){
+class Bane4 extends Bane {
+  void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(570, 440, 60, 230); //bund af forhindring
     rect(570, 240, 20, 130); //top af forhindring
@@ -86,10 +126,19 @@ class Bane4 {
     rect(630, 670, 170, 50); //hul i jorden
     rect(300, 670, 200, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
+  }
+  
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return baneD;
+    } else { 
+      return this;
+    }
+  }
 }
-}
-class BaneD {
-  void display(){
+class BaneD extends Bane {
+  void display() {
     rect(-5, 670, 1086, 50); //jorden
     rect(68, 270, 50, 400); //forhindring
     rect(962, 270, 50, 400); //forhindring
@@ -102,5 +151,12 @@ class BaneD {
     rect(-2, 670, 70, 50); //hul i jorden
     rect(1012, 670, 70, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
+  }
+  Bane nextBane() {
+    if (location.x>width-100) {
+      return this;
+    } else { 
+      return this;
+    }
   }
 }
