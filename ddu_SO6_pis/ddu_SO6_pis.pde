@@ -121,3 +121,23 @@ class Platform {
     }
   }
 }
+
+class Startskaerm {
+  void draw() {
+    background(135, 206, 235);
+    rect(270, 210, 540, 75);
+    rect(290, 320, 500, 60);
+    rect(290, 410, 500, 60);
+    fill(0);
+    textSize(75);
+    text("Det Paludanske Eventyr", 110, 100);
+    textSize(50);
+    text("Start spillet", 410, 265);
+    textSize(40);
+    text("Hjælp", 490, 365);
+    text("Afslut", 490, 455);
+    fill(124, 252, 0);
+    rect(-1, 670, 1081, 50);
+    fill(255);
+  }
+}
