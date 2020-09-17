@@ -16,7 +16,7 @@ PVector gravity = new PVector(0, 0.07);
 void setup() {
   frameRate(30);
   size(1080, 720);
-  bane = new Bane(7);
+  bane=bane1;
   paludanStillR = loadImage("Paludan_Still_Right.png");
   paludanStillL = loadImage("Paludan_Still_Left.png");
 }
@@ -30,7 +30,8 @@ void draw() {
     paludan.update();
     paludan.checkEdges();
   }
-  bane1.display();
+  bane.display();
+  bane=bane.nextBane();
   paludan.display();
 }
 
@@ -81,12 +82,12 @@ class Paludan {
   }
 
   void checkEdges() {
-    if (location.x > width - 100) {
-      location.x = width - 100;
+    if (location.x > width - 50) {
+      location.x = width - 50;
       velocity.x *= - 1;
-    } else if (location.x < 0 + 100) {
+    } else if (location.x < 0) {
       velocity.x *= -1;
-      location.x = 0 + 100;
+      location.x = 0;
     }
 
     if (location.y  > height- 100) {
