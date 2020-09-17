@@ -41,12 +41,12 @@ class Bane1 extends Bane {
 
   void display() {
     rect(-5, 670, 1086, 50); //jorden
-    rect(platformeX1[0], 610, 70, 30); //nederste blok
-    rect(platformeX1[1], 540, 70, 30); //anden nederste blok
-    rect(platformeX1[2], 450, 70, 30); //trejde nederste blok
-    rect(platformeX1[3], 410, 70, 30); //fjerde nederste blok
-    rect(platformeX1[4], 320, 70, 30); //anden øverste blok
-    rect(platformeX1[5], 250, 70, 30); //øverste blok
+    rect(platformeX1[0], platformeY1[0], 70, 30); //nederste blok
+    rect(platformeX1[1], platformeY1[1], 70, 30); //anden nederste blok
+    rect(platformeX1[2], platformeY1[2], 70, 30); //trejde nederste blok
+    rect(platformeX1[3], platformeY1[3], 70, 30); //fjerde nederste blok
+    rect(platformeX1[4], platformeY1[4], 70, 30); //anden øverste blok
+    rect(platformeX1[5], platformeY1[5], 70, 30); //øverste blok
     rect(900, 200, 30, 450); //forhindring
     fill(255);
     rect(1000, 600, 30, 70); //"dør"
