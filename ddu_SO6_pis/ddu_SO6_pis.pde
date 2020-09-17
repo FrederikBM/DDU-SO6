@@ -10,7 +10,7 @@ BaneD baneD = new BaneD();
 Paludan paludan = new Paludan(location = new PVector(30, 400));
 ArrayList<Platform> platform = new ArrayList<Platform>();
 PVector location;
-PVector gravity = new PVector(0, 0.005);
+PVector gravity = new PVector(0, 0.07);
 
 
 void setup() {
@@ -46,17 +46,7 @@ class Paludan {
   }
 
   void bevaegelser() {
-    
-
-    if (keyPressed && key == 'a' && key == 'w' || keyPressed && keyCode == LEFT && keyCode == UP) {
-      PVector tilbageOgHop = new PVector(-0.3, -1);
-      paludan.applyForce(tilbageOgHop);
-      right = false;
-    } else if (keyPressed && key == 'd' && key == 'w' || keyPressed && keyCode == RIGHT && keyCode == UP) {
-      PVector fremadOgHop = new PVector(0.3, 1);
-      paludan.applyForce(fremadOgHop);
-      right = true;
-    } else if (keyPressed && key == 'a' || keyPressed && keyCode == LEFT) {
+    if (keyPressed && key == 'a' || keyPressed && keyCode == LEFT) {
       PVector tilbage = new PVector(-0.3, 0);
       paludan.applyForce(tilbage);
       right = false;
@@ -64,11 +54,8 @@ class Paludan {
       PVector fremad = new PVector(0.3, 0);
       paludan.applyForce(fremad);
       right = true;
-    } else if (keyPressed && key == 'a' && key == 'd' || keyPressed && keyCode == LEFT && keyCode == RIGHT) {
-      PVector hop = new PVector(0, 0);
-      paludan.applyForce(hop);
     } else if (keyPressed && key == 'w' || keyPressed && keyCode == UP) {
-      PVector hop = new PVector(0, -1);
+      PVector hop = new PVector(0, -7);
       paludan.applyForce(hop);
     }
   }
@@ -133,5 +120,3 @@ class Platform {
     }
   }
 }
-
-
