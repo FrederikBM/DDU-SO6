@@ -6,22 +6,58 @@ class Bane {
   }
 }
 
+class Startskaerm extends Bane{
+  void display() {
+    background(135, 206, 235);
+    rect(270, 210, 540, 75);
+    rect(290, 320, 500, 60);
+    rect(290, 410, 500, 60);
+    fill(0);
+    textSize(75);
+    text("Det Paludanske Eventyr", 110, 100);
+    textSize(50);
+    text("Start spillet", 410, 265);
+    textSize(40);
+    text("Hjælp", 490, 365);
+    text("Afslut", 490, 455);
+    fill(124, 252, 0);
+    rect(-1, 670, 1081, 50);
+    fill(255);
+  }
+  Bane nextBane() {
+    if (location.x>width-100) {
+      location.x=30;
+      return bane1;
+    } else { 
+      return this;
+    }
+  }
+}
+
 class Bane1 extends Bane {
+  int[]   platformeX1 = new int[7];
+  int[]   platformeY1 = new int[7];
   
+
   void display() {
     rect(-5, 670, 1086, 50); //jorden
-    rect(280, 610, 70, 30); //nederste blok
-    rect(400, 540, 70, 30); //anden nederste blok
-    rect(300, 450, 70, 30); //trejde nederste blok
-    rect(450, 410, 70, 30); //fjerde nederste blok
-    rect(590, 320, 70, 30); //anden øverste blok
-    rect(750, 250, 70, 30); //øverste blok
+    rect(platformeX1[0], 610, 70, 30); //nederste blok
+    rect(platformeX1[1], 540, 70, 30); //anden nederste blok
+    rect(platformeX1[2], 450, 70, 30); //trejde nederste blok
+    rect(platformeX1[3], 410, 70, 30); //fjerde nederste blok
+    rect(platformeX1[4], 320, 70, 30); //anden øverste blok
+    rect(platformeX1[5], 250, 70, 30); //øverste blok
     rect(900, 200, 30, 450); //forhindring
     fill(255);
     rect(1000, 600, 30, 70); //"dør"
     fill(124, 252, 0); //gras grøn farve
   }
-
+  void platforme() {
+    for (int i = 0; i<7; i++) {
+      platformeX1[i] = (280 + (180*i));
+      platformeY1[i] = (610 - (70*i));
+    }
+  }
   Bane nextBane() {
     if (location.x>width-100) {
       location.x=30;
@@ -50,7 +86,7 @@ class Bane2 extends Bane {
     rect(630, 670, 170, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
   }
-  
+
   Bane nextBane() {
     if (location.x>width-100) {
       location.x=30;
@@ -71,7 +107,7 @@ class BaneU extends Bane {
     rect(1000, 540, 70, 30); //sjette blok fra venstre
     fill(124, 252, 0); //gras grøn farve
   }
-  
+
   Bane nextBane() {
     if (location.x>width-100) {
       location.x=30;
@@ -99,7 +135,7 @@ class Bane3 extends Bane {
     rect(300, 670, 100, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
   }
-  
+
   Bane nextBane() {
     if (location.x>width-100) {
       location.x=30;
@@ -127,7 +163,7 @@ class Bane4 extends Bane {
     rect(300, 670, 200, 50); //hul i jorden
     fill(124, 252, 0); //gras grøn farve
   }
-  
+
   Bane nextBane() {
     if (location.x>width-100) {
       location.x=30;
@@ -154,7 +190,7 @@ class BaneD extends Bane {
   }
   Bane nextBane() {
     if (location.x>width-100) {
-      return this;
+      return startskaerm;
     } else { 
       return this;
     }
