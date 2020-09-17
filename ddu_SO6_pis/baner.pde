@@ -25,7 +25,7 @@ class Startskaerm extends Bane{
     fill(255);
   }
   Bane nextBane() {
-    if (location.x>width-100) {
+    if (mousePressed&&mouseX>270&&mouseX<810&&mouseY>210&&mouseY<285) {
       location.x=30;
       return bane1;
     } else { 
