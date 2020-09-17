@@ -6,7 +6,7 @@ class Bane {
   }
 }
 
-class Startskaerm extends Bane{
+class Startskaerm extends Bane {
   void display() {
     background(135, 206, 235);
     rect(270, 210, 540, 75);
@@ -26,7 +26,7 @@ class Startskaerm extends Bane{
   }
   Bane nextBane() {
     if (mousePressed&&mouseX>270&&mouseX<810&&mouseY>210&&mouseY<285) {
-      location.x=30;
+      paludan.location.x=30;
       return bane1;
     } else { 
       return this;
@@ -37,36 +37,45 @@ class Startskaerm extends Bane{
 class Bane1 extends Bane {
   int[]   platformeX1 = new int[7];
   int[]   platformeY1 = new int[7];
-  
+  int[]   platformeW1 = new int[7];
+  int[]   platformeH1 = new int[7];
 
   void display() {
     rect(-5, 670, 1086, 50); //jorden
-    rect(platformeX1[0], platformeY1[0], 70, 30); //nederste blok
-    rect(platformeX1[1], platformeY1[1], 70, 30); //anden nederste blok
-    rect(platformeX1[2], platformeY1[2], 70, 30); //trejde nederste blok
-    rect(platformeX1[3], platformeY1[3], 70, 30); //fjerde nederste blok
-    rect(platformeX1[4], platformeY1[4], 70, 30); //anden øverste blok
-    rect(platformeX1[5], platformeY1[5], 70, 30); //øverste blok
-    rect(900, 200, 30, 450); //forhindring
+    rect(platformeX1[0], platformeY1[0], platformeW1[0], platformeH1[0]); //nederste blok
+    rect(platformeX1[1], platformeY1[1], platformeW1[1], platformeH1[1]); //anden nederste blok
+    rect(platformeX1[2], platformeY1[2], platformeW1[2], platformeH1[2]); //trejde nederste blok
+    rect(platformeX1[3], platformeY1[3], platformeW1[3], platformeH1[3]); //fjerde nederste blok
+    rect(platformeX1[4], platformeY1[4], platformeW1[4], platformeH1[4]); //anden øverste blok
+    rect(platformeX1[5], platformeY1[5], platformeW1[5], platformeH1[5]); //øverste blok
+    rect(platformeX1[6], platformeY1[6], platformeW1[6], platformeH1[6]); //forhindring
     fill(255);
     rect(1000, 600, 30, 70); //"dør"
     fill(124, 252, 0); //gras grøn farve
   }
   void platforme() {
     for (int i = 0; i<7; i++) {
-      platformeX1[i] = (280 + (180*i));
-      platformeY1[i] = (610 - (70*i));
+      platformeX1[i] = (280 + (150*i));
+      platformeY1[i] = (610 - (80*i));
+      platformeX1[6] = 900;
+      platformeY1[6] = 200;
+      platformeW1[i] = 70;
+      platformeH1[i] = 30;
+      platformeW1[6] = 30;
+      platformeH1[6] = 450;
     }
   }
+
   Bane nextBane() {
-    if (location.x>width-100) {
-      location.x=30;
-      return bane2;
+    if (paludan.location.x>width-100) {
+      //paludan.location.x=30;
+      return this;
     } else { 
       return this;
     }
   }
 }
+
 
 
 class Bane2 extends Bane {
@@ -88,8 +97,8 @@ class Bane2 extends Bane {
   }
 
   Bane nextBane() {
-    if (location.x>width-100) {
-      location.x=30;
+    if (paludan.location.x>width-100) {
+      paludan.location.x=30;
       return baneU;
     } else { 
       return this;
@@ -109,8 +118,8 @@ class BaneU extends Bane {
   }
 
   Bane nextBane() {
-    if (location.x>width-100) {
-      location.x=30;
+    if (paludan.location.x>width-100) {
+      paludan.location.x=30;
       return bane3;
     } else { 
       return this;
@@ -137,8 +146,8 @@ class Bane3 extends Bane {
   }
 
   Bane nextBane() {
-    if (location.x>width-100) {
-      location.x=30;
+    if (paludan.location.x>width-100) {
+      paludan.location.x=30;
       return bane4;
     } else { 
       return this;
@@ -165,8 +174,8 @@ class Bane4 extends Bane {
   }
 
   Bane nextBane() {
-    if (location.x>width-100) {
-      location.x=30;
+    if (paludan.location.x>width-100) {
+      paludan.location.x=30;
       return baneD;
     } else { 
       return this;
@@ -189,7 +198,7 @@ class BaneD extends Bane {
     fill(124, 252, 0); //gras grøn farve
   }
   Bane nextBane() {
-    if (location.x>width-100) {
+    if (paludan.location.x>width-100) {
       return startskaerm;
     } else { 
       return this;
