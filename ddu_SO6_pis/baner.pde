@@ -34,6 +34,24 @@ class Startskaerm extends Bane {
   }
 }
 
+class Slutskaerm extends Bane {
+  void display() {
+    background(0);
+    textSize(50);
+    text("du døde haha det sjov", 275, 300);
+    fill(150, 0, 0);
+  }
+}
+
+class Vinderskaerm extends Bane {
+  void draw() {
+    background(150, 200, 75);
+    textSize(50);
+    text("du vandt din fucking taber", 225, 300);
+    fill(230, 15, 200);
+  }
+}
+
 class Bane1 extends Bane {
   int[]   platformeX1 = new int[7];
   int[]   platformeY1 = new int[7];
