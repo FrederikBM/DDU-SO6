@@ -1,7 +1,9 @@
-PImage paludanStillR, paludanStillL;
+PImage paludanStillR, paludanStillL, uffeElbk;
 Boolean right = true;
 Bane bane;
 Startskaerm startskaerm = new Startskaerm();
+Vinderskaerm vinderskaerm = new Vinderskaerm();
+Slutskaerm taberskaerm = new Slutskaerm();
 Bane1 bane1 = new Bane1();
 Bane2 bane2 = new Bane2();
 BaneU baneU = new BaneU();
@@ -20,6 +22,7 @@ void setup() {
   bane=startskaerm;
   paludanStillR = loadImage("Paludan_Still_Right.png");
   paludanStillL = loadImage("Paludan_Still_Left.png");
+  uffeElbk = loadImage("Uffe_Elbk.png");
 }
 void draw() {
   paludan.bevaegelser();
@@ -62,11 +65,11 @@ class Paludan {
       PVector hop = new PVector(0, -7);
       paludan.applyForce(hop);
     } else if (keyPressed && key == 'q') {
-      PVector hop = new PVector(-0.6, -5);
+      PVector hop = new PVector(-0.6, -7);
       paludan.applyForce(hop);
       right = false;
     } else if (keyPressed && key == 'e') {
-      PVector hop = new PVector(0.6, -5);
+      PVector hop = new PVector(0.6, -7);
       paludan.applyForce(hop);
       right = true;
     }
@@ -118,10 +121,9 @@ class Paludan {
         paludan.velocity.y *= 0;
         paludan.acceleration.mult(0);
       } //rammer venstre side
-      if(bane==bane1 && location.y > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]){
+      if(bane==bane1 && location.x+50 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]-bane1.platformeW1[t]){
         location.x = bane1.platformeX1[t];
         paludan.velocity.x *= 0;
-        paludan.acceleration.mult(0);
       } //rammer højre side
       else if(bane==bane1 && location.y > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]){
         location.x = bane1.platformeX1[t];
