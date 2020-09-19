@@ -1,16 +1,16 @@
 class Bane {
   int platform=1;
-  int[]   platformeX1 = new int[7];
-  int[]   platformeY1 = new int[7];
-  int[]   platformeW1 = new int[7];
-  int[]   platformeH1 = new int[7];
-  
-  Bane(){
+  int[]   platformeX1 = new int[9];
+  int[]   platformeY1 = new int[9];
+  int[]   platformeW1 = new int[9];
+  int[]   platformeH1 = new int[9];
+
+  Bane() {
   }
-  
+
   void display() {
   }
-  void platforme(){
+  void platforme() {
   }
   Bane nextBane() {
     return null;
@@ -115,19 +115,15 @@ class Bane1 extends Bane {
   }
 }
 
-
-
 class Bane2 extends Bane {
   void display() {
     rect(-5, 670, 1086, 50); //jorden
-    rect(570, 540, 60, 130); //bund af forhindring
-    rect(600, 440, 30, 100); //midt af forhindring
-    rect(570, 340, 60, 100); //top af forhindring
-    rect(450, 600, 70, 30); //nedereste blok
-    rect(430, 450, 70, 30); // anden nederste blok
-    rect(320, 370, 70, 30); // tredje nederste blok
-    rect(430, 300, 70, 30); //øverste blok
-    rect(700, 650, 20, 20); //lille blok
+    rect(platformeX1[1], platformeY1[1], platformeW1[1], platformeH1[1]); //øverste blok
+    rect(platformeX1[2], platformeY1[2], platformeW1[2], platformeH1[2]); // anden nederste blok
+    rect(platformeX1[3], platformeY1[3], platformeW1[3], platformeH1[3]); //nederste blok
+    rect(platformeX1[4], platformeY1[4], platformeW1[4], platformeH1[4]); // tredje nederste blok
+    rect(platformeX1[4], platformeY1[5], platformeW1[5], platformeH1[5]); // tredje nederste blok2
+    rect(platformeX1[6], platformeY1[6], platformeW1[6], platformeH1[6]); //bund af forhindring
     fill(255); //"dør" farve
     rect(1000, 600, 30, 70); //"dør"
     fill(95, 2, 31); // hul farve
@@ -135,8 +131,30 @@ class Bane2 extends Bane {
     fill(124, 252, 0); //gras grøn farve
   }
 
+  void platforme() {
+    for (int i = 0; i<8; i++) {
+      if (i<6) {
+        platformeX1[i]=430;
+        platformeY1[i]=750-160*i;
+        platformeW1[i] = 70;
+        platformeH1[i] = 30;
+        platformeX1[4]=280;
+        platformeX1[5]=280;
+        platformeY1[4]=340;
+        platformeY1[5]=510;
+      } else if (i<=7) {
+        platformeX1[6]=570;
+        platformeY1[6]=300;
+        platformeW1[6] = 60;
+        platformeH1[6] = 370;
+      }
+    }
+  }
   Bane nextBane() {
-    if (paludan.location.x>width-90 && paludan.location.y>height-130) {
+    if (paludan.location.x>630&&paludan.location.x<800&&paludan.location.y>610) {
+      paludan.location.x=30;
+      return taberskaerm;
+    } else if (paludan.location.x>width-90 && paludan.location.y>height-130) {
       paludan.location.x=30;
       return baneU;
     } else { 
@@ -150,116 +168,55 @@ class BaneU extends Bane {
 
   void display() {
     rect(-5, 670, 1086, 50); //jorden
-    rect(90, 400, 70, 30); //første blok fra venstre
-    rect(190, 570, 70, 30); //anden blok fra venstre
-    rect(240, 470, 70, 30); //tredje blok fra venstre
-    rect(600, 560, 70, 30); //fjerde blok fra venstre
-    rect(800, 530, 70, 30); //femte blok fra venstre
-    rect(1000, 540, 70, 30); //sjette blok fra venstre
+    rect(platformeX1[0], platformeY1[0], platformeW1[0], platformeH1[0]); //første blok fra venstre
+    rect(platformeX1[1], platformeY1[1], platformeW1[1], platformeH1[1]); //anden blok fra venstre
+    rect(platformeX1[2], platformeY1[2], platformeW1[2], platformeH1[2]); //tredje blok fra venstre
+    rect(platformeX1[3], platformeY1[3], platformeW1[3], platformeH1[3]); //fjerde blok fra venstre
+    rect(platformeX1[4], platformeY1[4], platformeW1[4], platformeH1[4]); //femte blok fra venstre
+    rect(platformeX1[5], platformeY1[5], platformeW1[5], platformeH1[5]); //sjette blok fra venstre
+    fill(255);
+    rect(1000, 600, 30, 70); //"dør"
     fill(124, 252, 0); //gras grøn farve
-    image(uffeElbk, uffeX, 620);
+    image(uffeElbk, uffeX, 590);
 
     if (turn==false) {
-      uffeX=uffeX+5;
+      uffeX=uffeX+20;
     } else if (turn==true) {
-      uffeX=uffeX-5; 
+      uffeX=uffeX-20;
     }
     if (uffeX>1000) {
-        turn=true;
-      } else if (uffeX<80){
-        turn=false;
-      }
-      
-      if(uffeX<paludan.location.x+50 && uffeX+50>paludan.location.x+100 && 580 < paludan.location.y || uffeX>paludan.location.x-50 && uffeX-10<paludan.location.x && 580 < paludan.location.y){
-        bane=taberskaerm;
-      }
-    }
-    Bane nextBane() {
-      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
-        paludan.location.x=30;
-        return bane3;
-      } else { 
-        return this;
-      }
+      turn=true;
+    } else if (uffeX<80) {
+      turn=false;
     }
 
-  }
-  class Bane3 extends Bane {
-    void display() {
-      rect(-5, 670, 1086, 50); //jorden
-      rect(570, 540, 60, 130); //bund af forhindring
-      rect(570, 340, 60, 100); //top af forhindring
-      rect(450, 600, 70, 30); //nedereste blok
-      rect(430, 450, 70, 30); //anden nederste blok
-      rect(320, 370, 70, 30); //tredje nederste blok
-      rect(430, 300, 70, 30); //øverste blok
-      rect(770, 600, 50, 30); //stor lille blok
-      rect(700, 650, 20, 20); //lille blok
-      fill(255); //"dør" farve
-      rect(1000, 600, 30, 70); //"dør"
-      fill(95, 2, 31); // hul farve
-      rect(630, 670, 170, 50); //hul i jorden
-      rect(300, 670, 100, 50); //hul i jorden
-      fill(124, 252, 0); //gras grøn farve
+    if (uffeX<paludan.location.x+50 && uffeX+50>paludan.location.x+100 && 580 < paludan.location.y || uffeX>paludan.location.x-50 && uffeX-10<paludan.location.x && 580 < paludan.location.y) {
+      bane=taberskaerm;
     }
-
-    Bane nextBane() {
-      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
-        paludan.location.x=30;
-        return bane4;
-      } else { 
-        return this;
+  }
+  
+  void platforme() {
+    for (int i = 0; i<7; i++) {
+      if(i!=2&&i!=3){
+      platformeX1[i] = 100+160*i;
+      platformeY1[i] = 550;
+      platformeW1[i] = 70;
+      platformeH1[i] = 30;
+      } else {
+      platformeX1[i] = 100+160*i;
+      platformeY1[i] = 420;
+      platformeW1[i] = 70;
+      platformeH1[i] = 30;
       }
     }
   }
-  class Bane4 extends Bane {
-    void display() {
-      rect(-5, 670, 1086, 50); //jorden
-      rect(570, 440, 60, 230); //bund af forhindring
-      rect(570, 240, 20, 130); //top af forhindring
-      rect(450, 600, 70, 30); //nedereste blok
-      rect(400, 500, 70, 30); //anden nederste blok
-      rect(320, 370, 70, 30); //tredje nederste blok
-      rect(430, 300, 70, 30); //øverste blok
-      rect(300, 600, 70, 20); //venstre blok
-      rect(700, 600, 10, 15); //lille blok
-      fill(255); //"dør" farve
-      rect(1000, 600, 30, 70); //"dør"
-      fill(95, 2, 31); // hul farve
-      rect(630, 670, 170, 50); //hul i jorden
-      rect(300, 670, 200, 50); //hul i jorden
-      fill(124, 252, 0); //gras grøn farve
-    }
-
-    Bane nextBane() {
-      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
-        paludan.location.x=30;
-        return baneD;
-      } else { 
-        return this;
-      }
+  
+  Bane nextBane() {
+    if (paludan.location.x>width-90 && paludan.location.y>height-130) {
+      paludan.location.x=30;
+      return vinderskaerm;
+    } else { 
+      return this;
     }
   }
-  class BaneD extends Bane {
-    void display() {
-      rect(-5, 670, 1086, 50); //jorden
-      rect(68, 270, 50, 400); //forhindring
-      rect(962, 270, 50, 400); //forhindring
-      rect(118, 560, 50, 30); //blok side fast på forhindring
-      rect(190, 475, 70, 30); //først blok fra venstre
-      rect(310, 400, 150, 30); //anden blok fra venstre
-      rect(610, 400, 150, 30); //tredje blok fra venstre
-      rect(830, 350, 70, 30);
-      fill(95, 2, 31); // hul farve
-      rect(-2, 670, 70, 50); //hul i jorden
-      rect(1012, 670, 70, 50); //hul i jorden
-      fill(124, 252, 0); //gras grøn farve
-    }
-    Bane nextBane() {
-      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
-        return vinderskaerm;
-      } else { 
-        return this;
-      }
-    }
-  }
+}
