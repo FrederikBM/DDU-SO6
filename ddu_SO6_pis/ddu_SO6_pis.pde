@@ -11,9 +11,7 @@ BaneU baneU = new BaneU();
 Bane3 bane3 = new Bane3();
 Bane4 bane4 = new Bane4();
 BaneD baneD = new BaneD();
-
 Paludan paludan = new Paludan(new PVector(30, 100));
-
 PVector gravity = new PVector(0, 0.07);
 
 
@@ -30,7 +28,7 @@ void draw() {
   background(135, 206, 235);
   reset();
   pause();
-  
+
   if (pause==false) {
     paludan.bevaegelser();
     for (int i = 0; i<100; i++) {
@@ -39,7 +37,7 @@ void draw() {
       paludan.checkEdges();
     }
   }
-  bane1.platforme();
+  bane.platforme();
   bane.display();
   bane=bane.nextBane();
   paludan.display();
@@ -131,25 +129,30 @@ class Paludan {
     for (int t = 0; t<7; t++) {
       //bane 1:
       //rammer toppen:
-      if (bane==bane1 && location.y > bane1.platformeY1[t]-30 && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+70) {
-        location.y = bane1.platformeY1[t]-15;
-        paludan.velocity.y *= 0;
-        paludan.acceleration.mult(0);
-      } //rammer bunden:
-      else if (bane==bane1 && location.y+20 > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]) {
-        location.y = bane1.platformeY1[t]-50;
-        paludan.velocity.y *= 0;
-        paludan.acceleration.mult(0);
-      } //rammer venstre side
-      if (bane==bane1 && location.x+50 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]-bane1.platformeW1[t]) {
-        location.x = bane1.platformeX1[t];
-        paludan.velocity.x *= 0;
-      } //rammer højre side
-      else if (bane==bane1 && location.y > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]) {
-        location.x = bane1.platformeX1[t];
-        paludan.velocity.x *= 0;
-        paludan.acceleration.mult(0);
-      } 
+      if (bane==bane1) {
+        if (t<6) {
+          if (location.y > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]) {
+            location.y = bane1.platformeY1[t]-15;
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          } //rammer bunden:
+          else if (location.y+20 > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]) {
+            location.y = bane1.platformeY1[t]-50;
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          }
+        } //rammer venstre side
+        else if (location.x+40 > bane1.platformeX1[t] && location.x-10 < bane1.platformeX1[t]-bane1.platformeW1[t] && location.y < bane1.platformeY1[t]+bane1.platformeH1[t] && location.y+50 > bane1.platformeY1[t]) {
+          location.x = bane1.platformeX1[t]-bane1.platformeW1[t]*1.5;
+          paludan.velocity.x *= 0;
+          paludan.acceleration.mult(0);
+        } //rammer højre side
+        else if (location.x+40 > bane1.platformeX1[t]+bane1.platformeW1[t] && location.x+10 < bane1.platformeX1[t]+bane1.platformeW1[t] && location.y < bane1.platformeY1[t]+bane1.platformeH1[t] && location.y+50 > bane1.platformeY1[t]) {
+          location.x = bane1.platformeX1[t]+bane1.platformeW1[t]+10;
+          paludan.velocity.x *= 0;
+          paludan.acceleration.mult(0);
+        }
+      }
       //bane 2:
     }
   }
