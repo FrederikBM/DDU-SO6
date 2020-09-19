@@ -8,20 +8,18 @@ Slutskaerm taberskaerm = new Slutskaerm();
 Bane1 bane1 = new Bane1();
 Bane2 bane2 = new Bane2();
 BaneU baneU = new BaneU();
-Bane3 bane3 = new Bane3();
-Bane4 bane4 = new Bane4();
-BaneD baneD = new BaneD();
 Paludan paludan = new Paludan(new PVector(30, 100));
-PVector gravity = new PVector(0, 0.07);
+PVector gravity = new PVector(0, 0.35);
 
 
 void setup() {
   frameRate(30);
   size(1080, 720);
-  bane=startskaerm;
+  bane=baneU;
   paludanStillR = loadImage("Paludan_Still_Right.png");
   paludanStillL = loadImage("Paludan_Still_Left.png");
   uffeElbk = loadImage("Uffe_Elbk.png");
+  uffeElbk.resize(80,0);
 }
 void draw() {
 
@@ -31,7 +29,7 @@ void draw() {
 
   if (pause==false) {
     paludan.bevaegelser();
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i<20; i++) {
       paludan.applyForce(gravity);
       paludan.update();
       paludan.checkEdges();
@@ -126,11 +124,11 @@ class Paludan {
       velocity.y *= 0;
       acceleration.mult(-1);
     } 
-    for (int t = 0; t<7; t++) {
+    for (int t = 0; t<9; t++) {
       //bane 1:
-      //rammer toppen:
       if (bane==bane1) {
         if (t<6) {
+          //rammer toppen:
           if (location.y > bane1.platformeY1[t]-bane1.platformeH1[t] && location.y < bane1.platformeY1[t]-20 &&  location.x+35 > bane1.platformeX1[t] && location.x < bane1.platformeX1[t]+bane1.platformeW1[t]) {
             location.y = bane1.platformeY1[t]-15;
             paludan.velocity.y *= 0;
@@ -154,6 +152,55 @@ class Paludan {
         }
       }
       //bane 2:
+      if (bane==bane2) {
+        if (t<6) {
+          //rammer toppen:
+          if (location.y+50 > bane.platformeY1[t] && location.y+50 < bane.platformeY1[t]+bane.platformeH1[t] &&  location.x+35 > bane.platformeX1[t] && location.x < bane.platformeX1[t]+bane.platformeW1[t]) {
+            location.y = bane.platformeY1[t]-50;
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          } //rammer bunden:
+          else if (location.y < bane.platformeY1[t]+bane.platformeH1[t] && location.y > bane.platformeY1[t] &&  location.x+35 > bane.platformeX1[t] && location.x < bane.platformeX1[t]+bane.platformeW1[t]) {
+            location.y = bane.platformeY1[t]+bane.platformeH1[t];
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          }
+        } else if (t<8) {
+
+          //rammer toppen:
+          if (location.y+50 > bane.platformeY1[t] && location.y+50 < bane.platformeY1[t]+bane.platformeH1[t] &&  location.x+35 > bane.platformeX1[t] && location.x < bane.platformeX1[t]+bane.platformeW1[t]) {
+            location.y = bane.platformeY1[t]-50;
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          } //rammer venstre side
+          else if (location.x+40 > bane.platformeX1[t] && location.x+40 < bane.platformeX1[t]+bane.platformeW1[t] && location.y < bane.platformeY1[t]+bane.platformeH1[t] && location.y+50 > bane.platformeY1[t]) {
+            location.x = bane.platformeX1[t]-40;
+            println("i");
+            paludan.velocity.x *= 0;
+            paludan.acceleration.mult(0);
+          } //rammer højre side
+          else if (location.x+40 > bane.platformeX1[t]+bane.platformeW1[t] && location.x+10 < bane.platformeX1[t]+bane.platformeW1[t] && location.y < bane.platformeY1[t]+bane.platformeH1[t] && location.y+50 > bane.platformeY1[t]) {
+            location.x = bane.platformeX1[t]+bane.platformeW1[t]+10;
+            paludan.velocity.x *= 0;
+            paludan.acceleration.mult(0);
+          }
+        }
+      }
+      if (bane==baneU) {
+        if (t<6) {
+          //rammer toppen:
+          if (location.y+50 > bane.platformeY1[t] && location.y+50 < bane.platformeY1[t]+bane.platformeH1[t] &&  location.x+35 > bane.platformeX1[t] && location.x < bane.platformeX1[t]+bane.platformeW1[t]) {
+            location.y = bane.platformeY1[t]-50;
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          } //rammer bunden:
+          else if (location.y < bane.platformeY1[t]+bane.platformeH1[t] && location.y > bane.platformeY1[t] &&  location.x+35 > bane.platformeX1[t] && location.x < bane.platformeX1[t]+bane.platformeW1[t]) {
+            location.y = bane.platformeY1[t]+bane.platformeH1[t];
+            paludan.velocity.y *= 0;
+            paludan.acceleration.mult(0);
+          }
+        }
+      }
     }
   }
 }
