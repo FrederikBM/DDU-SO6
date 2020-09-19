@@ -1,5 +1,16 @@
 class Bane {
+  int platform=1;
+  int[]   platformeX1 = new int[7];
+  int[]   platformeY1 = new int[7];
+  int[]   platformeW1 = new int[7];
+  int[]   platformeH1 = new int[7];
+  
+  Bane(){
+  }
+  
   void display() {
+  }
+  void platforme(){
   }
   Bane nextBane() {
     return null;
@@ -67,10 +78,6 @@ class Vinderskaerm extends Bane {
 }
 
 class Bane1 extends Bane {
-  int[]   platformeX1 = new int[7];
-  int[]   platformeY1 = new int[7];
-  int[]   platformeW1 = new int[7];
-  int[]   platformeH1 = new int[7];
 
   void display() {
     rect(-5, 670, 1086, 50); //jorden
@@ -89,17 +96,17 @@ class Bane1 extends Bane {
     for (int i = 0; i<7; i++) {
       platformeX1[i] = (280 + (150*i));
       platformeY1[i] = (610 - (80*i));
-      platformeX1[6] = 900;
-      platformeY1[6] = 200;
       platformeW1[i] = 70;
       platformeH1[i] = 30;
+      platformeX1[6] = 900;
+      platformeY1[6] = 200;
       platformeW1[6] = 30;
       platformeH1[6] = 470;
     }
   }
 
   Bane nextBane() {
-    if (paludan.location.x>width-100) {
+    if (paludan.location.x>width-90 && paludan.location.y>height-130) {
       paludan.location.x=30;
       return bane2;
     } else { 
@@ -129,7 +136,7 @@ class Bane2 extends Bane {
   }
 
   Bane nextBane() {
-    if (paludan.location.x>width-100) {
+    if (paludan.location.x>width-90 && paludan.location.y>height-130) {
       paludan.location.x=30;
       return baneU;
     } else { 
@@ -168,7 +175,7 @@ class BaneU extends Bane {
       }
     }
     Bane nextBane() {
-      if (paludan.location.x>width-100) {
+      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
         paludan.location.x=30;
         return bane3;
       } else { 
@@ -197,7 +204,7 @@ class BaneU extends Bane {
     }
 
     Bane nextBane() {
-      if (paludan.location.x>width-100) {
+      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
         paludan.location.x=30;
         return bane4;
       } else { 
@@ -225,7 +232,7 @@ class BaneU extends Bane {
     }
 
     Bane nextBane() {
-      if (paludan.location.x>width-100) {
+      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
         paludan.location.x=30;
         return baneD;
       } else { 
@@ -249,7 +256,7 @@ class BaneU extends Bane {
       fill(124, 252, 0); //gras grøn farve
     }
     Bane nextBane() {
-      if (paludan.location.x>width-100) {
+      if (paludan.location.x>width-90 && paludan.location.y>height-130) {
         return vinderskaerm;
       } else { 
         return this;
