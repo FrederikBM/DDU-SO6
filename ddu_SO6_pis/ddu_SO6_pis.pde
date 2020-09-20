@@ -3,6 +3,7 @@ Boolean right = true;
 Boolean pause = false;
 Bane bane;
 Startskaerm startskaerm = new Startskaerm();
+Hjaelpskaerm hjaelpskaerm = new Hjaelpskaerm();
 Vinderskaerm vinderskaerm = new Vinderskaerm();
 Slutskaerm taberskaerm = new Slutskaerm();
 Bane1 bane1 = new Bane1();
@@ -15,7 +16,7 @@ PVector gravity = new PVector(0, 0.35);
 void setup() {
   frameRate(30);
   size(1080, 720);
-  bane=baneU;
+  bane=startskaerm;
   paludanStillR = loadImage("Paludan_Still_Right.png");
   paludanStillL = loadImage("Paludan_Still_Left.png");
   uffeElbk = loadImage("Uffe_Elbk.png");
