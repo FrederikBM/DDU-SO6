@@ -77,6 +77,25 @@ class Vinderskaerm extends Bane {
   }
 }
 
+class Hjaelpskaerm extends Bane {
+  void display() {
+      background(135, 206, 235);
+      fill(124, 252, 0);
+      rect(-1, 670, 1081, 50);
+      fill(255);
+      rect(100,100,879,500);
+      fill(0);
+      textSize(75);
+      text("Controls",120,180);
+      textSize(30);
+      text("A og D: Bevæg Paludan til venstre og til højre.",120,230);
+      text("W: Hop (tryk), svæv (hold nede).",120,280);
+      text("Q og E: Paludan hopper til venstre og højre.",120,330);
+      textSize(40);
+      text("Tilbage til startskærm",520,570);
+  }
+}
+
 class Bane1 extends Bane {
 
   void display() {
