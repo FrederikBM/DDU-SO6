@@ -39,6 +39,8 @@ class Startskaerm extends Bane {
     if (mousePressed&&mouseX>270&&mouseX<810&&mouseY>210&&mouseY<285) {
       paludan.location.x=30;
       return bane1;
+    } else if (mousePressed&&mouseX>290&&mouseX<790&&mouseY>320&&mouseY<380) {
+      return hjaelpskaerm;
     } else { 
       return this;
     }
@@ -91,8 +93,18 @@ class Hjaelpskaerm extends Bane {
       text("A og D: Bevæg Paludan til venstre og til højre.",120,230);
       text("W: Hop (tryk), svæv (hold nede).",120,280);
       text("Q og E: Paludan hopper til venstre og højre.",120,330);
+      text("P og SHIFT+P: Du pauser skærmen og starter den igen",120,380);
+      text("R: Du genstarter spillet",120,430);
       textSize(40);
       text("Tilbage til startskærm",520,570);
+  }
+  Bane nextBane() {
+    if (mousePressed&&mouseX>520&&mouseX<970&&mouseY>470&&mouseY<570) {
+      paludan.location.x=30;
+      return startskaerm;
+    } else { 
+      return this;
+    }
   }
 }
 
